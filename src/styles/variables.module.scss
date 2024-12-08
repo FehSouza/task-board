@@ -1,0 +1,37 @@
+$background: #0c1629;
+
+$primary: #70e1f5;
+$secondary: #70c6f5;
+$tertiary: #243c55;
+$neutral: #bbbbbb;
+
+$textPrimary: #ffffff;
+$textSecondary: #70c6f5;
+$textLink: #70e1f5;
+
+$success: #00c87b;
+$warning: #c87b00;
+$error: #c80003;
+
+$border: #243c55;
+$input: #243c55;
+
+:export {
+  background: $background;
+
+  primary: $primary;
+  secondary: $secondary;
+  tertiary: $tertiary;
+  neutral: $neutral;
+
+  textPrimary: $textPrimary;
+  textSecondary: $textSecondary;
+  textLink: $textLink;
+
+  success: $success;
+  warning: $warning;
+  error: $error;
+
+  border: $border;
+  input: $input;
+}

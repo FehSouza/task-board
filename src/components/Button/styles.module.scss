@@ -1,0 +1,35 @@
+@import '../../styles/variables.module.scss';
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transition-duration: 350ms;
+  border: none;
+  border-radius: 8px;
+  background-color: $primary;
+  padding: 8px 16px;
+  width: 100%;
+  min-height: 40px;
+  color: $textForeground;
+  font-weight: 700;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  .loading {
+    animation: loading 0.75s linear infinite;
+  }
+}

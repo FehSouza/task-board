@@ -84,6 +84,11 @@ button {
   &:hover {
     cursor: pointer;
   }
+
+  &:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+  }
 }
 
 ul {

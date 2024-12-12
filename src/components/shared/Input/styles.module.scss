@@ -1,4 +1,4 @@
-@import '../../styles//variables.module.scss';
+@use '../../../styles/variables.module.scss' as vars;
 
 .container {
   display: flex;
@@ -15,26 +15,26 @@
     align-items: center;
     transition-duration: 350ms;
     outline: hidden;
-    border: 1px solid $border;
+    border: 1px solid vars.$border;
     border-radius: 8px;
 
     &:hover {
-      border: 1px solid $secondary;
+      border: 1px solid vars.$secondary;
 
       svg {
-        color: $secondary;
+        color: vars.$secondary;
       }
     }
 
     &:focus-within {
-      border: 1px solid $primary;
+      border: 1px solid vars.$primary;
 
       svg {
-        color: $primary;
+        color: vars.$primary;
       }
     }
 
-    div {
+    label {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -44,7 +44,7 @@
 
     svg {
       transition-duration: 350ms;
-      color: $border;
+      color: vars.$border;
     }
 
     input {

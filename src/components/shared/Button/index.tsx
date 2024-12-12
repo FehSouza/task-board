@@ -1,5 +1,5 @@
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
-import colors from '../../styles/variables.module.scss'
+import colors from '../../../styles/variables.module.scss'
 import styles from './styles.module.scss'
 
 interface ButtonProps {

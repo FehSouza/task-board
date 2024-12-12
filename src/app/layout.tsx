@@ -1,4 +1,5 @@
 import { Header } from '@/components'
+import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import '../styles/globals.scss'
@@ -13,11 +14,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={roboto.className}>
-      <body>
-        <Header />
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="pt-BR" className={roboto.className}>
+        <body>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

@@ -32,7 +32,7 @@ export const Input = ({
       <label htmlFor={id}>{label}</label>
 
       <div className={styles.inputContainer}>
-        {!!iconLeft && <div>{iconLeft}</div>}
+        {!!iconLeft && <label htmlFor={id}>{iconLeft}</label>}
 
         <input
           id={id}
@@ -43,7 +43,7 @@ export const Input = ({
           maxLength={maxLength}
         />
 
-        {!!iconRight && <div>{iconRight}</div>}
+        {!!iconRight && <label htmlFor={id}>{iconRight}</label>}
       </div>
     </div>
   )

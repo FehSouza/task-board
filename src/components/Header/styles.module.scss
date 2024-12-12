@@ -10,8 +10,7 @@
   min-height: 70px;
 }
 
-.logo,
-.person {
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,9 +20,4 @@
   &:hover {
     opacity: 0.75;
   }
-}
-
-.person {
-  width: 48px;
-  height: 48px;
 }

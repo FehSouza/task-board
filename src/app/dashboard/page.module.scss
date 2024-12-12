@@ -1,4 +1,8 @@
 .main {
   display: flex;
+  flex: 1;
   flex-direction: column;
+  margin-top: 70px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

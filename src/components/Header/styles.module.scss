@@ -1,9 +1,21 @@
+@use '../../styles//variables.module.scss' as vars;
+
 .header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  box-shadow: 0 0 12px 2px vars.$background;
+  background-color: vars.$background;
+  width: 100%;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  margin: 0 auto;
   padding: 0 16px;
   width: 100%;
   max-width: 1432px;

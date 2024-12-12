@@ -6,9 +6,11 @@ import styles from './styles.module.scss'
 export const Header = () => {
   return (
     <header className={styles.header}>
-      <Link className={styles.logo} href="/" aria-label="Ir para a Home">
-        <Image src={ImageLogo} alt="Logo Task Board" width={160} height={33} />
-      </Link>
+      <div className={styles.container}>
+        <Link className={styles.logo} href="/" aria-label="Ir para a Home">
+          <Image src={ImageLogo} alt="Logo Task Board" width={160} height={33} />
+        </Link>
+      </div>
     </header>
   )
 }

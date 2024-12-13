@@ -1,4 +1,5 @@
 'use client'
+
 import { SignInButton, SignUpButton, useUser } from '@clerk/nextjs'
 import Link from 'next/link'
 import styles from './styles.module.scss'

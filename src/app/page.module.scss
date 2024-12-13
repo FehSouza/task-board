@@ -20,7 +20,7 @@
   max-width: 1432px;
 
   @media (max-width: 1024px) {
-    gap: 80px;
+    gap: 64px;
   }
 
   @media (max-width: 768px) {
@@ -44,6 +44,10 @@
 
   h1 {
     font-size: 32px;
+
+    @media (max-width: 1024px) {
+      font-size: 28px;
+    }
 
     @media (max-width: 768px) {
       font-size: 18px;

@@ -6,3 +6,59 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex: 1;
+  align-items: center;
+  gap: 160px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 1432px;
+
+  @media (max-width: 1024px) {
+    gap: 80px;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    padding: 32px 16px;
+  }
+}
+
+.infosContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 32px;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+
+  span {
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+}
+
+.imageContainer {
+  width: inherit;
+  height: auto;
+}

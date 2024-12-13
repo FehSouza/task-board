@@ -8,13 +8,13 @@ export const LoginControls = () => {
 
   if (!user)
     return (
-      <div className={styles.container}>
+      <div className={[styles.container, styles.buttonsContainer].join(' ')}>
         <SignInButton mode="modal" forceRedirectUrl="/dashboard">
-          <button>Já tem uma conta? Faça o Login!</button>
+          <button>Já tem conta? Faça o Login!</button>
         </SignInButton>
 
         <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
-          <button>Ainda não tem uma conta? Crie uma agora!</button>
+          <button>Ainda não tem conta? Crie uma agora!</button>
         </SignUpButton>
       </div>
     )

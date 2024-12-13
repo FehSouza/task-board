@@ -1,10 +1,11 @@
+import { ReactNode } from 'react'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import colors from '../../../styles/variables.module.scss'
 import styles from './styles.module.scss'
 
 interface ButtonProps {
   onclick?: () => void
-  text?: string
+  children?: ReactNode
   textTransform?: 'none' | 'lowercase' | 'uppercase' | 'capitalize'
   iconLeft?: React.ReactNode
   iconRight?: React.ReactNode
@@ -16,7 +17,7 @@ interface ButtonProps {
 
 export const Button = ({
   onclick,
-  text,
+  children,
   textTransform = 'none',
   iconLeft,
   iconRight,
@@ -39,7 +40,7 @@ export const Button = ({
     >
       {!!iconLeft && !loading && iconLeft}
 
-      {!!text && !loading && text}
+      {children}
 
       {!!iconRight && !loading && iconRight}
 

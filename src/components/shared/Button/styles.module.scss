@@ -25,6 +25,10 @@
   color: vars.$textForeground;
   font-weight: 700;
 
+  @media (max-width: 768px) {
+    min-height: 38px;
+  }
+
   &:hover {
     opacity: 0.75;
   }

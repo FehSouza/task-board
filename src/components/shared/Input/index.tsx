@@ -1,12 +1,13 @@
 import { randomId } from '@/utils'
-import { FormEvent } from 'react'
+import { FormEvent, HTMLInputTypeAttribute } from 'react'
 import styles from './styles.module.scss'
 
 interface InputProps {
   label: string
-  placeholder: string
+  placeholder?: string
   oninput?: (event: FormEvent<HTMLInputElement>) => void
   htmlFor?: string
+  type?: HTMLInputTypeAttribute
   defaultValue?: string
   maxLength?: number
   iconLeft?: React.ReactNode
@@ -19,6 +20,7 @@ export const Input = ({
   placeholder,
   oninput,
   htmlFor,
+  type,
   defaultValue,
   maxLength,
   iconLeft,
@@ -36,7 +38,8 @@ export const Input = ({
 
         <input
           id={id}
-          type="text"
+          name={id}
+          type={type ?? 'text'}
           placeholder={placeholder}
           onInput={oninput}
           defaultValue={defaultValue}

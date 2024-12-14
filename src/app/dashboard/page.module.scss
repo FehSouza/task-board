@@ -1,3 +1,5 @@
+@use '../../styles//variables.module.scss' as vars;
+
 .main {
   display: flex;
   flex: 1;
@@ -5,4 +7,36 @@
   margin-top: 70px;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.addTaskContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 32px auto 0;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 1432px;
+
+  button {
+    width: fit-content;
+  }
+}
+
+.division {
+  margin: 32px auto 0;
+  border: 1px solid vars.$border;
+  width: 100%;
+  max-width: 1432px;
+}
+
+.tasksContainer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 32px auto 0;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 1432px;
 }

@@ -16,6 +16,7 @@ $input: #243c55;
 
 $border: #243c55;
 $background: #0c1629;
+$overlay: #0000005a;
 
 :export {
   primary: $primary;
@@ -36,4 +37,5 @@ $background: #0c1629;
 
   border: $border;
   background: $background;
+  overlay: $overlay;
 }

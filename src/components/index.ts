@@ -1,3 +1,5 @@
 export * from './Header'
 export * from './LoginControls'
+export * from './Modal'
 export * from './shared'
+export * from './TaskForm'

@@ -1,6 +1,9 @@
+import { Button } from '@/components'
 import { SignOutButton } from '@clerk/nextjs'
 import { auth } from '@clerk/nextjs/server'
+import Link from 'next/link'
 import { redirect } from 'next/navigation'
+import { FaPlus } from 'react-icons/fa'
 import styles from './page.module.scss'
 
 export default async function Dashboard() {
@@ -8,12 +11,20 @@ export default async function Dashboard() {
   if (!sessionClaims) return redirect('/')
 
   return (
-    <main className={styles.main}>
-      <h1>Dashboard</h1>
+    <>
+      <section className={styles.addTaskContainer}>
+        <Link href="/dashboard/add-task">
+          <Button iconLeft={<FaPlus size={12} />}>Adicionar tarefa</Button>
+        </Link>
 
-      <SignOutButton redirectUrl="/">
-        <button>Sair</button>
-      </SignOutButton>
-    </main>
+        <SignOutButton redirectUrl="/">
+          <Button>Sair</Button>
+        </SignOutButton>
+      </section>
+
+      <hr className={styles.division} />
+
+      <section className={styles.tasksContainer}></section>
+    </>
   )
 }

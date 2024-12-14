@@ -19,13 +19,15 @@
   border: none;
   border-radius: 8px;
   background-color: vars.$primary;
-  padding: 8px 16px;
+  padding: 8px 12px;
   width: 100%;
+  min-width: 40px;
   min-height: 40px;
   color: vars.$textForeground;
   font-weight: 700;
 
   @media (max-width: 768px) {
+    min-width: 38px;
     min-height: 38px;
   }
 

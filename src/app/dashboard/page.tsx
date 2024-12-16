@@ -1,4 +1,4 @@
-import { Button } from '@/components'
+import { Button, Textarea } from '@/components'
 import { SignOutButton } from '@clerk/nextjs'
 import { auth } from '@clerk/nextjs/server'
 import Link from 'next/link'

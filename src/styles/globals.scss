@@ -1,5 +1,9 @@
 @use './variables.module.scss' as vars;
 
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 html {
   width: 100vw;
   height: 100vh;
@@ -67,6 +71,17 @@ textarea {
 input,
 textarea {
   border: 1px solid vars.$input;
+
+  &::placeholder {
+    color: vars.$textPlaceholder;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
 }
 
 input[type='number']::-webkit-inner-spin-button {
@@ -114,8 +129,8 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 
   @media (max-width: 768px) {
     width: 0;
@@ -129,7 +144,8 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  border: none;
+  cursor: default;
+  border: 2px solid vars.$background;
   border-radius: 4px;
   background-color: vars.$neutral;
 }

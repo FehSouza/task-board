@@ -10,47 +10,28 @@
     font-weight: 700;
   }
 
-  .inputContainer {
+  .textareaContainer {
     display: flex;
     align-items: center;
     transition-duration: 350ms;
     border: 1px solid vars.$border;
     border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
 
     &:hover {
       border: 1px solid vars.$secondary;
-
-      svg {
-        color: vars.$secondary;
-      }
     }
 
     &:focus-within {
       border: 1px solid vars.$primary;
-
-      svg {
-        color: vars.$primary;
-      }
     }
 
-    label {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 38px;
-    }
-
-    svg {
-      transition-duration: 350ms;
-      color: vars.$border;
-    }
-
-    input {
+    textarea {
       flex: 1;
       border: none;
-      padding: 0 10px;
-      height: 38px;
+      line-height: 20px;
+      resize: none;
 
       &:focus {
         outline: none;

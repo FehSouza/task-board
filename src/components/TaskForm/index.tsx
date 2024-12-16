@@ -1,5 +1,5 @@
 import { TaskProps } from '@/@types'
-import { Button, Input } from '../shared'
+import { Button, Input, Textarea } from '../shared'
 import styles from './styles.module.scss'
 
 interface TaskFormProps {
@@ -17,7 +17,7 @@ export const TaskForm = ({ task }: TaskFormProps) => {
     <form className={styles.formContainer}>
       <Input label="Título" placeholder="Digite o título" htmlFor="title" defaultValue={title ?? ''} />
 
-      <Input
+      <Textarea
         label="Descrição"
         placeholder="Digite a descrição"
         htmlFor="description"

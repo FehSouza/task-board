@@ -9,15 +9,25 @@ interface TextareaProps {
   placeholder?: string
   htmlFor?: string
   defaultValue?: string
+  initialRows?: number
+  maxRows?: number
+  rowHeight?: number
   mt?: number
 }
 
-export const Textarea = ({ label, placeholder, htmlFor, defaultValue, mt }: TextareaProps) => {
-  const [rows, setRows] = useState(3)
+export const Textarea = ({
+  label,
+  placeholder,
+  htmlFor,
+  defaultValue,
+  initialRows = 3,
+  maxRows = 7,
+  rowHeight = 20,
+  mt,
+}: TextareaProps) => {
+  const [rows, setRows] = useState(initialRows)
   const textareaRef = useRef<HTMLTextAreaElement | null>(null)
 
-  const maxRows = 7
-  const rowHeight = 20
   const id = htmlFor ?? `textarea-element-${randomId()}`
 
   const handleChange = () => {

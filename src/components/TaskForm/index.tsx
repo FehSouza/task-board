@@ -1,5 +1,5 @@
 import { TaskProps } from '@/@types'
-import { Button, Input, Textarea } from '../shared'
+import { Button, Dropdown, Input, Textarea } from '../shared'
 import styles from './styles.module.scss'
 
 interface TaskFormProps {
@@ -13,6 +13,9 @@ export const TaskForm = ({ task }: TaskFormProps) => {
   const status = task?.status
   const priority = task?.priority
 
+  const statusOptions = ['Pendente', 'Em andamento', 'Concluída'] as const
+  const priorityOptions = ['Baixa', 'Média', 'Alta'] as const
+
   return (
     <form className={styles.formContainer}>
       <Input label="Título" placeholder="Digite o título" htmlFor="title" defaultValue={title ?? ''} />
@@ -24,11 +27,22 @@ export const TaskForm = ({ task }: TaskFormProps) => {
         defaultValue={description ?? ''}
       />
 
-      <Input label="Data de vencimento" htmlFor="date" type="date" defaultValue={date ?? ''} />
+      <Input label="Data de vencimento" placeholder="dd/mm/aaaa" htmlFor="date" defaultValue={date ?? ''} />
 
       <div className={styles.line}>
-        <Input label="Status" htmlFor="status" defaultValue={status ?? ''} />
-        <Input label="Prioridade" htmlFor="priority" defaultValue={priority ?? ''} />
+        <Dropdown
+          label="Status"
+          placeholder="Selecione uma opção"
+          options={statusOptions}
+          defaultValue={status ?? undefined}
+        />
+
+        <Dropdown
+          label="Prioridade"
+          placeholder="Selecione uma opção"
+          options={priorityOptions}
+          defaultValue={priority ?? undefined}
+        />
       </div>
 
       <Button type="submit">Adicionar tarefa</Button>

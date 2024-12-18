@@ -1,0 +1,73 @@
+@use '../../../styles/variables.module.scss' as vars;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+
+  label {
+    font-weight: 700;
+  }
+
+  .dropdown {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    transition-duration: 350ms;
+    border: 1px solid vars.$border;
+    border-radius: 8px;
+    min-width: 192px;
+
+    &:hover {
+      border: 1px solid vars.$secondary;
+    }
+
+    &:focus-within {
+      border: 1px solid vars.$primary;
+    }
+  }
+
+  .dropdown button {
+    border: none;
+    padding: 0 10px;
+    width: 100%;
+    min-height: 38px;
+    color: vars.$textPlaceholder;
+    text-align: start;
+
+    &.selected {
+      color: vars.$textPrimary;
+    }
+  }
+
+  .dropdown .list {
+    display: flex;
+    position: absolute;
+    top: 44px;
+    flex-direction: column;
+    z-index: 1;
+    transition-duration: 350ms;
+    border-radius: 8px;
+    background-color: vars.$border;
+    padding: 10px 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .dropdown .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition-duration: 350ms;
+    cursor: pointer;
+    padding: 0 10px;
+    min-height: 38px;
+
+    &:hover {
+      background-color: vars.$primary;
+      color: vars.$textForeground;
+    }
+  }
+}

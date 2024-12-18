@@ -10,6 +10,8 @@ interface InputProps {
   type?: HTMLInputTypeAttribute
   defaultValue?: string
   maxLength?: number
+  min?: number | string
+  max?: number | string
   iconLeft?: React.ReactNode
   iconRight?: React.ReactNode
   mt?: number
@@ -23,6 +25,8 @@ export const Input = ({
   type,
   defaultValue,
   maxLength,
+  min,
+  max,
   iconLeft,
   iconRight,
   mt,
@@ -44,6 +48,8 @@ export const Input = ({
           onInput={oninput}
           defaultValue={defaultValue}
           maxLength={maxLength}
+          min={min}
+          max={max}
         />
 
         {!!iconRight && <label htmlFor={id}>{iconRight}</label>}

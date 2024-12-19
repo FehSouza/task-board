@@ -4,14 +4,12 @@ import styles from './styles.module.scss'
 
 interface InputProps {
   label: string
-  placeholder?: string
-  oninput?: (event: FormEvent<HTMLInputElement>) => void
+  placeholder: string
+  value: string
+  onchange: (event: FormEvent<HTMLInputElement>) => void
   htmlFor?: string
   type?: HTMLInputTypeAttribute
-  defaultValue?: string
   maxLength?: number
-  min?: number | string
-  max?: number | string
   iconLeft?: React.ReactNode
   iconRight?: React.ReactNode
   mt?: number
@@ -20,13 +18,11 @@ interface InputProps {
 export const Input = ({
   label,
   placeholder,
-  oninput,
+  value,
+  onchange,
   htmlFor,
-  type,
-  defaultValue,
+  type = 'text',
   maxLength,
-  min,
-  max,
   iconLeft,
   iconRight,
   mt,
@@ -40,17 +36,7 @@ export const Input = ({
       <div className={styles.inputContainer}>
         {!!iconLeft && <label htmlFor={id}>{iconLeft}</label>}
 
-        <input
-          id={id}
-          name={id}
-          type={type ?? 'text'}
-          placeholder={placeholder}
-          onInput={oninput}
-          defaultValue={defaultValue}
-          maxLength={maxLength}
-          min={min}
-          max={max}
-        />
+        <input id={id} type={type} placeholder={placeholder} value={value} onChange={onchange} maxLength={maxLength} />
 
         {!!iconRight && <label htmlFor={id}>{iconRight}</label>}
       </div>

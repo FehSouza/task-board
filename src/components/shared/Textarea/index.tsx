@@ -1,14 +1,15 @@
 'use client'
 
 import { randomId } from '@/utils'
-import { useRef, useState } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import styles from './styles.module.scss'
 
 interface TextareaProps {
   label: string
-  placeholder?: string
+  placeholder: string
+  value: string
+  onchange: (event: FormEvent<HTMLTextAreaElement>) => void
   htmlFor?: string
-  defaultValue?: string
   initialRows?: number
   maxRows?: number
   rowHeight?: number
@@ -18,8 +19,9 @@ interface TextareaProps {
 export const Textarea = ({
   label,
   placeholder,
+  value,
+  onchange,
   htmlFor,
-  defaultValue,
   initialRows = 3,
   maxRows = 7,
   rowHeight = 20,
@@ -30,13 +32,14 @@ export const Textarea = ({
 
   const id = htmlFor ?? `textarea-element-${randomId()}`
 
-  const handleChange = () => {
+  const handleChange = (e: FormEvent<HTMLTextAreaElement>) => {
     const textarea = textareaRef.current
     if (!textarea) return
 
     const scrollHeight = textarea.scrollHeight
     const currentRows = Math.min(Math.ceil(scrollHeight / rowHeight), maxRows)
     setRows(currentRows)
+    onchange(e)
   }
 
   return (
@@ -47,9 +50,8 @@ export const Textarea = ({
         <textarea
           ref={textareaRef}
           id={id}
-          name={id}
           placeholder={placeholder}
-          defaultValue={defaultValue}
+          value={value}
           onChange={handleChange}
           rows={rows}
         />

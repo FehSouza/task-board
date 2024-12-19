@@ -20,12 +20,12 @@
     border-radius: 8px;
     min-width: 192px;
 
-    &:hover {
+    &.opened {
       border: 1px solid vars.$secondary;
     }
 
-    &:focus-within {
-      border: 1px solid vars.$primary;
+    &:hover {
+      border: 1px solid vars.$secondary;
     }
   }
 

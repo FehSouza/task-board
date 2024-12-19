@@ -1,13 +1,13 @@
 'use client'
 
 import { randomId } from '@/utils'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { MdOutlineCheck } from 'react-icons/md'
 import styles from './styles.module.scss'
 
 interface ItemDropdownProps {
   option: string
-  selectedOption: string | null
+  valueSelected: string | null
   handleSelect: (option: string) => void
 }
 
@@ -15,12 +15,13 @@ interface DropdownProps<T extends readonly string[]> {
   label: string
   placeholder: string
   options: T
-  defaultValue?: T[number]
+  valueSelected: T[number] | null
+  setValueSelected: Dispatch<SetStateAction<T[number] | null>>
   mt?: number
 }
 
-const ItemDropdown = ({ option, selectedOption, handleSelect }: ItemDropdownProps) => {
-  const itemSelected = option === selectedOption
+const ItemDropdown = ({ option, valueSelected, handleSelect }: ItemDropdownProps) => {
+  const itemSelected = option === valueSelected
 
   return (
     <li className={styles.item} onClick={() => handleSelect(option)}>
@@ -34,11 +35,11 @@ export const Dropdown = <T extends readonly string[]>({
   label,
   placeholder,
   options,
-  defaultValue,
+  valueSelected,
+  setValueSelected,
   mt,
 }: DropdownProps<T>) => {
   const [opened, setOpened] = useState(false)
-  const [selectedOption, setSelectedOption] = useState(defaultValue ?? null)
 
   const id = `option-element-${randomId()}`
 
@@ -46,7 +47,7 @@ export const Dropdown = <T extends readonly string[]>({
   const handleClose = () => setOpened(false)
 
   const handleSelect = (option: string) => {
-    setSelectedOption(option)
+    setValueSelected(option)
     handleClose()
   }
 
@@ -59,9 +60,9 @@ export const Dropdown = <T extends readonly string[]>({
     <div className={styles.container} style={{ marginTop: `${mt}px` }}>
       <label onClick={handleOpen}>{label}</label>
 
-      <div className={styles.dropdown}>
-        <button type="button" onClick={handleOpen} className={selectedOption ? styles.selected : ''}>
-          {selectedOption ?? placeholder}
+      <div className={[styles.dropdown, opened ? styles.opened : ''].join(' ')}>
+        <button type="button" onClick={handleOpen} className={valueSelected ? styles.selected : ''}>
+          {valueSelected ?? placeholder}
         </button>
 
         {opened && (
@@ -70,7 +71,7 @@ export const Dropdown = <T extends readonly string[]>({
               <ItemDropdown
                 key={`${id}-${index}`}
                 option={option}
-                selectedOption={selectedOption}
+                valueSelected={valueSelected}
                 handleSelect={handleSelect}
               />
             ))}
